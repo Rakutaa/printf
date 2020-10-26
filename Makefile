@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vtran <vtran@student.42.fr>                +#+  +:+       +#+         #
+#    By: hege <hege@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/26 15:35:27 by vtran             #+#    #+#              #
-#    Updated: 2019/11/29 13:12:41 by vtran            ###   ########.fr        #
+#    Updated: 2020/10/26 17:30:55 by hege             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,9 @@ $(NAME): $(OBJS)
 $(ODIR)/%.o: $(SDIR)/%.c
 		@mkdir -p objs
 		@$(CC) $(FLAGS) -I includes/ -I libft/includes/ -o $@ -c $<
+
+main:	all
+		gcc -I includes/ -I libft/includes/ -o main main.c -L. -lftprintf
 
 clean:
 		@/bin/rm -rf $(OBJS)
